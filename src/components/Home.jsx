@@ -41,7 +41,7 @@ export default function Home() {
         <ul className="reviews-list">
           {reviews.map((review) => {
             return (
-              <li className="review-card" key={review.created_at}>
+              <li className="review-card" key={review.review_id}>
                 <Link to={`/reviews/${review.review_id}`}>
                   <h3>{review.title}</h3>
                 </Link>

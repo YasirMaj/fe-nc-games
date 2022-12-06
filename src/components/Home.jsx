@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom/dist";
 import { getReviews } from "../utils/api";
 
 export default function Home() {
@@ -41,16 +42,18 @@ export default function Home() {
           {reviews.map((review) => {
             return (
               <li className="review-card" key={review.created_at}>
-                <h3>{review.title}</h3>
-                <p>{review.designer}</p>
+                <Link to={`/reviews/${review.review_id}`}>
+                  <h3>{review.title}</h3>
+                </Link>
+                <p>Designer: {review.designer}</p>
                 <img
                   src={review.review_img_url}
                   alt={review.title}
-                  width="100"
-                  height="100"
+                  width="200"
+                  height="200"
                 />
                 <br />
-                <p>{review.owner}</p>
+                <p>Author: {review.owner}</p>
                 <span>Votes: {review.votes}</span>
                 <span>Comments: {review.comment_count}</span>
               </li>

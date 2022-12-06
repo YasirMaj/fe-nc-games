@@ -7,7 +7,7 @@ export default function Header() {
 
   return (
     <header>
-      <h1>{`Welcome ${user.username} to NC Games!`}</h1>
+      <h1>{`Welcome ${user.username} to Games Forum!`}</h1>
     </header>
   );
 }

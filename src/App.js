@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Categories from "./components/Categories";
 import Users from "./components/Users";
+import Review from "./components/Review";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/reviews/:review_id" element={<Review />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/users" element={<Users />} />
       </Routes>

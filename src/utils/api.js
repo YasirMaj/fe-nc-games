@@ -21,3 +21,27 @@ export const getComments = (review_id) => {
     return res.data.comments;
   });
 };
+
+export const getUsers = () => {
+  return gamesApi.get(`/users`).then((res) => {
+    return res.data.users;
+  });
+};
+
+export const postUser = (username, name, avatar_url) => {
+  const postBody = {
+    username: username,
+    name: name,
+    avatar_url: avatar_url,
+  };
+  return gamesApi.post(`/users`, postBody).then((res) => {
+    return res.data.user;
+  });
+};
+
+export const patchReview = (review_id, inc_votes) => {
+  const patchBody = { inc_votes: inc_votes };
+  return gamesApi.patch(`/comments/${review_id}`, patchBody).then((res) => {
+    return res.data.review;
+  });
+};

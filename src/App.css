@@ -6,18 +6,64 @@
   --light-color: #eae9df;
 }
 
-/* * {
-  font-family: "Indie Flower", cursive;
+* {
+  /* font-family: "Indie Flower", cursive; */
   padding: 0%;
   margin: 0%;
-  box-sizing: border-box;
-  border: 1px solid red;
-} */
+  /* box-sizing: border-box; */
+  /* background-color: transparent; */
+  /* color: black; */
+  /* border: 1px solid red; */
+}
 
 .App {
   text-align: center;
+  background-color: var(--dark-color);
+}
+
+header {
+  background-color: var(--light-accent-color);
+  color: var(--dark-color);
+}
+
+nav {
+  background-color: var(--dark-accent-color);
 }
 
 .Link {
   padding: 10px;
+  color: var(--light-accent-color);
+}
+
+img {
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+}
+
+h3 {
+  color: var(--light-color);
+}
+.review-card {
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  color: var(--dark-accent-color);
+}
+
+.review {
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  color: var(--dark-accent-color);
+}
+
+.comment-card {
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  color: var(--dark-accent-color);
 }

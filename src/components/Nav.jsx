@@ -19,10 +19,12 @@ export default function Nav() {
         </Link>
       ) : null}
       {user.username !== "Guest" ? (
-        <Link className="Link" to="/users">
-          <button onClick={() => setUser({ username: "Guest" })}>
-            Sign Out
-          </button>
+        <Link
+          className="Link"
+          to="/users"
+          onClick={() => setUser({ username: "Guest" })}
+        >
+          Sign Out
         </Link>
       ) : null}
     </nav>

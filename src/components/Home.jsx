@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <main>
-      <h2>Reviews List</h2>
+      <h3>Reviews List</h3>
       <select>
         <option
           onChange={() => {
@@ -43,19 +43,16 @@ export default function Home() {
             return (
               <li className="review-card" key={review.review_id}>
                 <Link to={`/reviews/${review.review_id}`}>
-                  <h3>{review.title}</h3>
+                  <h4>{review.title}</h4>
                 </Link>
                 <p>Designer: {review.designer}</p>
-                <img
-                  src={review.review_img_url}
-                  alt={review.title}
-                  width="200"
-                  height="200"
-                />
+                <p>Category: {review.category}</p>
+                <img src={review.review_img_url} alt={review.title} />
                 <br />
                 <p>Author: {review.owner}</p>
-                <span>Votes: {review.votes}</span>
                 <span>Comments: {review.comment_count}</span>
+                <br />
+                <span>Votes: {review.votes}</span>
               </li>
             );
           })}

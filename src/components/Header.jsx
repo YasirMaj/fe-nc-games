@@ -7,7 +7,12 @@ export default function Header() {
 
   return (
     <header>
-      <h1>{`Welcome ${user.username} to Games Forum!`}</h1>
+      <img
+        src="https://see.fontimg.com/api/renderfont4/2v7X/eyJyIjoiZnMiLCJoIjo1NiwidyI6MTAwMCwiZnMiOjU2LCJmZ2MiOiIjQjcxMEY0IiwiYmdjIjoiI0ZDRkNGQyIsInQiOjF9/R0FNRVMgRk9SVU0/scrabble.png"
+        alt="Games Forum"
+        width="100%"
+      />
+      <h2>{`Welcome ${user.username}.`}</h2>
     </header>
   );
 }

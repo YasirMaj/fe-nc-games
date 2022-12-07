@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getComments } from "../utils/api";
@@ -19,7 +20,7 @@ export default function Comments() {
 
   return (
     <main>
-      <h2>Comments</h2>
+      <h3>Comments</h3>
       {isLoading ? (
         <h3 id="loading">Loading...</h3>
       ) : (
@@ -27,9 +28,12 @@ export default function Comments() {
           {comments.map((comment) => {
             return (
               <li className="comment-card" key={comment.comment_id}>
-                <h3>Author: {comment.author}</h3>
+                <h4>Author: {comment.author}</h4>
                 <p>{comment.body}</p>
-                <p>Date Created: {comment.created_at}</p>
+                <p>
+                  Date Created:
+                  {moment(comment.created_at).utc().format("YYYY-MM-DD")}
+                </p>
                 <span>Votes: {comment.votes}</span>
               </li>
             );

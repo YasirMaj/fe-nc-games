@@ -1,7 +1,9 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/dist";
 import { getReviewsById } from "../utils/api";
 import Comments from "./Comments";
+import ReviewVotes from "./ReviewVotes";
 
 export default function Review() {
   const [review, setReview] = useState({});
@@ -20,26 +22,24 @@ export default function Review() {
 
   return (
     <main>
-      <h2>Review</h2>
+      <h3>Review</h3>
       {isLoading ? (
         <h3 id="loading">Loading...</h3>
       ) : (
         <div>
           <section className="review">
-            <h3>{review.title}</h3>
+            <h4>{review.title}</h4>
             <p>Designer: {review.designer}</p>
             <p>Category: {review.category}</p>
-            <img
-              src={review.review_img_url}
-              alt={review.title}
-              width="200"
-              height="200"
-            />
+            <img src={review.review_img_url} alt={review.title} />
             <br />
             <p>Author: {review.owner}</p>
             <p>{review.review_body}</p>
-            <p>Date Created: {review.created_at}</p>
-            <span>Votes: {review.votes}</span>
+            <p>
+              Date Created:
+              {moment(review.created_at).utc().format("YYYY-MM-DD")}
+            </p>
+            <ReviewVotes review={review} />
             <span>Comments: {review.comment_count}</span>
           </section>
           <section className="comments-list">

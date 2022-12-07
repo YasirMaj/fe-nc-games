@@ -41,9 +41,7 @@ export const postUser = (username, name, avatar_url) => {
 
 export const patchReview = (review_id, inc_votes) => {
   const patchBody = { inc_votes: inc_votes };
-  console.log(patchBody);
   return gamesApi.patch(`/reviews/${review_id}`, patchBody).then((res) => {
-    console.log(res);
     return res.data.review;
   });
 };

@@ -9,7 +9,7 @@ export default function Comments() {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { review_id } = useParams();
-  const [newComment, setNewComment] = useState(0);
+  const [newCommentCount, setNewCommentCount] = useState(0);
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,7 +19,7 @@ export default function Comments() {
         setIsLoading(false);
       });
     }, 0);
-  }, [review_id, newComment]);
+  }, [review_id, newCommentCount]);
 
   return (
     <main>
@@ -46,7 +46,7 @@ export default function Comments() {
             </ul>
           </section>
           <section className="post-comment">
-            <PostComment setNewComment={setNewComment} />
+            <PostComment setNewComment={setNewCommentCount} />
           </section>
         </div>
       )}

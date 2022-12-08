@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom/dist";
 import { postComment } from "../utils/api";
 import { UserContext } from "../contexts/users";
 
-export default function PostComment({ setNewComment }) {
+export default function PostComment({ setNewCommentCount }) {
   const [newBody, setNewBody] = useState("");
   const { user } = useContext(UserContext);
   const { review_id } = useParams();
@@ -18,7 +18,7 @@ export default function PostComment({ setNewComment }) {
       setErr(null);
       postComment(review_id, user.username, newBody)
         .then(() => {
-          setNewComment((curr) => {
+          setNewCommentCount((curr) => {
             return curr + 1;
           });
         })

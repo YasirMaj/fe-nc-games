@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { patchComment } from "../utils/api";
 import { useContext } from "react";
 import { UserContext } from "../contexts/users";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function CommentVotes({ comment }) {
   const [votes, setVotes] = useState(0);
@@ -85,22 +87,28 @@ export default function CommentVotes({ comment }) {
           disabled={resetDownVote}
           onClick={upVote ? decreaseUpVote : increaseUpVote}
         >
-          <span aria-label="inc vote for this comment">👍</span>
+          <span aria-label="inc vote for this comment">
+            {" "}
+            <FontAwesomeIcon icon={regular("thumbs-up")} flip />
+          </span>
         </button>
+        <section>
+          {err ? (
+            <span>Sorry - your vote was not counted</span>
+          ) : (
+            <p>Votes: {comment.votes + votes}</p>
+          )}
+        </section>
         <button
           disabled={resetUpVote}
           onClick={downVote ? decreaseDownVote : increaseDownVote}
         >
-          <span aria-label="dec vote for this comment">👎</span>
+          <span aria-label="dec vote for this comment">
+            {" "}
+            <FontAwesomeIcon icon={regular("thumbs-down")} flip />
+          </span>
         </button>
         <span>{error}</span>
-      </section>
-      <section>
-        {err ? (
-          <span>Sorry - your vote was not counted</span>
-        ) : (
-          <p>Votes: {comment.votes + votes}</p>
-        )}
       </section>
     </div>
   );

@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom/dist";
+import { Link, useParams } from "react-router-dom/dist";
 import { getReviews } from "../utils/api";
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { slug } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
-      getReviews().then((reviewsFromApi) => {
+      getReviews(slug).then((reviewsFromApi) => {
         setReviews(reviewsFromApi);
         setIsLoading(false);
       });
     }, 0);
-  }, []);
+  }, [slug]);
 
   return (
     <main>
@@ -46,7 +47,9 @@ export default function Home() {
                   <h4>{review.title}</h4>
                 </Link>
                 <p>Designer: {review.designer}</p>
-                <p>Category: {review.category}</p>
+                <Link to={`/categories/${review.category}`}>
+                  <p>Category: {review.category}</p>
+                </Link>
                 <img src={review.review_img_url} alt={review.title} />
                 <br />
                 <p>Author: {review.owner}</p>

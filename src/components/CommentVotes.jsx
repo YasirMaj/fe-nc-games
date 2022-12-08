@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import { patchReview } from "../utils/api";
+import { patchComment } from "../utils/api";
 import { useContext } from "react";
 import { UserContext } from "../contexts/users";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 
-export default function ReviewVotes({ review }) {
+export default function CommentVotes({ comment }) {
   const [votes, setVotes] = useState(0);
   const [upVote, setUpVote] = useState(false);
   const [resetUpVote, setResetUpVote] = useState(false);
@@ -14,7 +13,7 @@ export default function ReviewVotes({ review }) {
   const [resetDownVote, setResetDownVote] = useState(false);
   const [err, setErr] = useState(null);
   const [error, setError] = useState("");
-  const { review_id } = useParams();
+
   const { user } = useContext(UserContext);
 
   const increaseUpVote = () => {
@@ -25,7 +24,7 @@ export default function ReviewVotes({ review }) {
       setVotes((currVotes) => {
         return currVotes + 1;
       });
-      patchReview(review_id, 1).catch((error) => {
+      patchComment(comment.comment_id, 1).catch((error) => {
         setErr(error);
       });
       setUpVote(true);
@@ -41,7 +40,7 @@ export default function ReviewVotes({ review }) {
       setVotes((currVotes) => {
         return currVotes - 1;
       });
-      patchReview(review_id, -1).catch((error) => {
+      patchComment(comment.comment_id, -1).catch((error) => {
         setErr(error);
       });
       setUpVote(false);
@@ -57,7 +56,7 @@ export default function ReviewVotes({ review }) {
       setVotes((currVotes) => {
         return currVotes - 1;
       });
-      patchReview(review_id, -1).catch((error) => {
+      patchComment(comment.comment_id, -1).catch((error) => {
         setErr(error);
       });
       setDownVote(true);
@@ -73,7 +72,7 @@ export default function ReviewVotes({ review }) {
       setVotes((currVotes) => {
         return currVotes + 1;
       });
-      patchReview(review_id, 1).catch((error) => {
+      patchComment(comment.comment_id, 1).catch((error) => {
         setErr(error);
       });
       setDownVote(false);
@@ -82,13 +81,14 @@ export default function ReviewVotes({ review }) {
   };
 
   return (
-    <div className="review-votes">
+    <div className="comment-votes">
       <section>
         <button
           disabled={resetDownVote}
           onClick={upVote ? decreaseUpVote : increaseUpVote}
         >
-          <span aria-label="inc vote for this review">
+          <span aria-label="inc vote for this comment">
+            {" "}
             <FontAwesomeIcon icon={regular("thumbs-up")} flip />
           </span>
         </button>
@@ -96,14 +96,15 @@ export default function ReviewVotes({ review }) {
           {err ? (
             <span>Sorry - your vote was not counted</span>
           ) : (
-            <p>Votes: {review.votes + votes}</p>
+            <p>Votes: {comment.votes + votes}</p>
           )}
         </section>
         <button
           disabled={resetUpVote}
           onClick={downVote ? decreaseDownVote : increaseDownVote}
         >
-          <span aria-label="dec vote for this review">
+          <span aria-label="dec vote for this comment">
+            {" "}
             <FontAwesomeIcon icon={regular("thumbs-down")} flip />
           </span>
         </button>

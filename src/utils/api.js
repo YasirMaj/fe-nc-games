@@ -4,10 +4,12 @@ const gamesApi = axios.create({
   baseURL: "https://games.cyclic.app/api",
 });
 
-export const getReviews = () => {
-  return gamesApi.get("/reviews").then((res) => {
-    return res.data.reviews;
-  });
+export const getReviews = (slug) => {
+  return gamesApi
+    .get("/reviews", { params: { category: slug } })
+    .then((res) => {
+      return res.data.reviews;
+    });
 };
 
 export const getReviewsById = (review_id) => {
@@ -28,6 +30,12 @@ export const getUsers = () => {
   });
 };
 
+export const getCatagories = () => {
+  return gamesApi.get("/categories").then((res) => {
+    return res.data.categories;
+  });
+};
+
 export const postUser = (username, name, avatar_url) => {
   const postBody = {
     username: username,
@@ -43,5 +51,24 @@ export const patchReview = (review_id, inc_votes) => {
   const patchBody = { inc_votes: inc_votes };
   return gamesApi.patch(`/reviews/${review_id}`, patchBody).then((res) => {
     return res.data.review;
+  });
+};
+
+export const postComment = (review_id, username, body) => {
+  const postBody = {
+    username: username,
+    body: body,
+  };
+  return gamesApi
+    .post(`/reviews/${review_id}/comments`, postBody)
+    .then((res) => {
+      return res.data.comment;
+    });
+};
+
+export const patchComment = (comment_id, inc_votes) => {
+  const patchBody = { inc_votes: inc_votes };
+  return gamesApi.patch(`/comments/${comment_id}`, patchBody).then((res) => {
+    return res.data.comment;
   });
 };

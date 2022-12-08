@@ -1,41 +1,67 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom/dist";
 import { getReviews } from "../utils/api";
+import { useSearchParams } from "react-router-dom";
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { slug } = useParams();
+  const [order, setOrder] = useState("desc");
+  const [sort, setSort] = useState("reviews.created_at");
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
-      getReviews(slug).then((reviewsFromApi) => {
+      getReviews(slug, sort, order).then((reviewsFromApi) => {
         setReviews(reviewsFromApi);
         setIsLoading(false);
       });
     }, 0);
-  }, [slug]);
+  }, [slug, sort, order]);
 
   return (
     <main>
       <h3>Reviews List</h3>
-      <select>
-        <option
-          onChange={() => {
-            console.log("here");
+      <section>
+        <h4>Sort By:</h4>
+        <button
+          onClick={() => {
+            setSort("reviews.created_at");
+            setSearchParams({ sort_by: "date" });
+          }}
+          disabled={sort === "reviews.created_at"}
+        >
+          Date
+        </button>
+        <button
+          onClick={() => {
+            setSort("comment_count");
+            setSearchParams({ sort_by: "comment-count" });
+          }}
+          disabled={sort === "comment_count"}
+        >
+          comment count
+        </button>
+        <button
+          onClick={() => {
+            setSort("reviews.votes");
+            setSearchParams({ sort_by: "votes" });
+          }}
+          disabled={sort === "reviews.votes"}
+        >
+          votes
+        </button>
+        <select
+          onChange={(e) => {
+            setOrder(e.target.value);
           }}
         >
-          ascending
-        </option>
-        <option
-          onChange={() => {
-            console.log("here");
-          }}
-        >
-          descending
-        </option>
-      </select>
+          <option disabled={order === "desc"}>desc</option>
+          <option disabled={order === "asc"}>asc</option>
+        </select>
+      </section>
       {isLoading ? (
         <h3 id="loading">Loading...</h3>
       ) : (

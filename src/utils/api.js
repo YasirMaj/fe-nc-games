@@ -4,9 +4,11 @@ const gamesApi = axios.create({
   baseURL: "https://games.cyclic.app/api",
 });
 
-export const getReviews = (slug) => {
+export const getReviews = (slug, sort, order) => {
   return gamesApi
-    .get("/reviews", { params: { category: slug } })
+    .get("/reviews", {
+      params: { category: slug, sort_by: sort, order: order },
+    })
     .then((res) => {
       return res.data.reviews;
     });

@@ -11,6 +11,7 @@ import SignUp from "./components/SignUp";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   return (
     <div className="App">
@@ -19,7 +20,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/reviews/:review_id" element={<Review />} />
-        <Route path="/categories" element={<Categories />} />
+        <Route
+          path="/categories"
+          element={
+            <Categories categories={categories} setCategories={setCategories} />
+          }
+        />
+        <Route path="/categories/:slug" element={<Home />} />
         <Route
           path="/users"
           element={<Users users={users} setUsers={setUsers} />}

@@ -70,7 +70,7 @@ export default function SignUp({ users }) {
       />
       <br />
       <button>Sign-Up</button>
-      <input type="reset" />
+      <input type="reset" id="reset" />
     </form>
   );
 }

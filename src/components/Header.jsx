@@ -13,5 +13,3 @@ export default function Header() {
     </header>
   );
 }
-
-// "https://see.fontimg.com/api/renderfont4/2v7X/eyJyIjoiZnMiLCJoIjo1NiwidyI6MTAwMCwiZnMiOjU2LCJmZ2MiOiIjQjcxMEY0IiwiYmdjIjoiI0ZDRkNGQyIsInQiOjF9/R0FNRVMgRk9SVU0/scrabble.png"

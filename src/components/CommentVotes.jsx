@@ -82,34 +82,30 @@ export default function CommentVotes({ comment }) {
 
   return (
     <div className="comment-votes">
-      <section>
-        <button
-          disabled={resetDownVote}
-          onClick={upVote ? decreaseUpVote : increaseUpVote}
-        >
-          <span aria-label="inc vote for this comment">
-            {" "}
-            <FontAwesomeIcon icon={regular("thumbs-up")} flip />
-          </span>
-        </button>
-        <section>
-          {err ? (
-            <span>Sorry - your vote was not counted</span>
-          ) : (
-            <p>Votes: {comment.votes + votes}</p>
-          )}
-        </section>
-        <button
-          disabled={resetUpVote}
-          onClick={downVote ? decreaseDownVote : increaseDownVote}
-        >
-          <span aria-label="dec vote for this comment">
-            {" "}
-            <FontAwesomeIcon icon={regular("thumbs-down")} flip />
-          </span>
-        </button>
-        <span>{error}</span>
-      </section>
+      <button
+        disabled={resetDownVote}
+        onClick={upVote ? decreaseUpVote : increaseUpVote}
+      >
+        <span aria-label="inc vote for this comment">
+          {" "}
+          <FontAwesomeIcon icon={regular("thumbs-up")} flip />
+        </span>
+      </button>
+      {err ? (
+        <span>Sorry - your vote was not counted</span>
+      ) : (
+        <p>Votes: {comment.votes + votes}</p>
+      )}
+      <button
+        disabled={resetUpVote}
+        onClick={downVote ? decreaseDownVote : increaseDownVote}
+      >
+        <span aria-label="dec vote for this comment">
+          {" "}
+          <FontAwesomeIcon icon={regular("thumbs-down")} flip />
+        </span>
+      </button>
+      <span>{error}</span>
     </div>
   );
 }

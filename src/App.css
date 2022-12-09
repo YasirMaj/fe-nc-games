@@ -7,16 +7,15 @@
 }
 
 * {
-  /* font-family: "Indie Flower", cursive; */
+  font-family: "Indie Flower", cursive;
   padding: 0%;
   margin: 0%;
-  /* box-sizing: border-box; */
-  /* background-color: transparent; */
-  /* color: black; */
-  /* border: 1px solid red; */
+  box-sizing: border-box;
+  background-color: transparent;
 }
 
 .App {
+  padding: 5px;
   text-align: center;
   background-color: var(--dark-color);
 }
@@ -59,9 +58,26 @@ h3 {
   color: var(--main-color);
 }
 
+/* Home */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  height: 50vh;
+  justify-content: space-between;
+}
+
 .App-logo {
-  height: 40vmin;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  height: 30%;
   pointer-events: none;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -79,57 +95,214 @@ h3 {
   }
 }
 
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+
+.home-buttons button {
+  background-color: var(--main-color);
+  padding: 2.5px;
+  border-radius: 5px;
+  color: var(--light-color);
+}
+
+/* Reviews */
+
 .sort-by {
   display: flex;
   flex-direction: rows;
   gap: 5px;
   justify-content: center;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.sort-by button {
+  background-color: var(--main-color);
+  color: var(--light-color);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.sort-by select {
+  background-color: var(--main-color);
+  color: var(--light-color);
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .review-card {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  padding: 10px;
   margin: 10px;
   border-radius: 10px;
   background-color: var(--light-color);
   color: var(--dark-accent-color);
+  box-shadow: 5px 5px 10px 0px var(--light-accent-color);
 }
+
+.review-card img {
+  margin: 5px;
+  border: 1px solid var(--main-color);
+}
+
+/* Review */
 
 .review {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  padding: 10px;
   margin: 10px;
   border-radius: 10px;
   background-color: var(--light-color);
   color: var(--dark-accent-color);
+  box-shadow: 5px 5px 10px 0px var(--light-accent-color);
 }
 
-.comment-card {
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: var(--light-color);
-  color: var(--dark-accent-color);
+.review-votes {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  gap: 5px;
+  align-items: center;
 }
 
-.user-card {
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: var(--light-color);
-  color: var(--dark-accent-color);
-}
-
-.category-card {
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: var(--light-color);
-  color: var(--dark-accent-color);
+.review-votes button {
+  font-size: xx-large;
+  color: var(--main-color);
 }
 
 .post-comment-form {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  padding: 10px;
   margin: 10px;
   border-radius: 10px;
   background-color: var(--light-color);
   color: var(--dark-accent-color);
+  box-shadow: 5px 5px 10px 0px var(--light-accent-color);
+}
+.post-comment-form button {
+  display: flex;
+  right: 10px;
+  font-size: xx-large;
+  color: var(--main-color);
+}
+
+#newComment {
+  background-color: var(--main-color);
+  color: var(--light-color);
+}
+
+.comment-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  color: var(--dark-accent-color);
+  box-shadow: 5px 5px 10px 0px var(--light-accent-color);
+}
+
+.comment-votes {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  gap: 5px;
+  align-items: center;
+}
+
+.comment-votes button {
+  font-size: xx-large;
+  color: var(--main-color);
+}
+
+#delete {
+  display: flex;
+  position: absolute;
+  right: 10px;
+  font-size: large;
+  color: var(--main-color);
+}
+
+/* Categories */
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  color: var(--dark-accent-color);
+  box-shadow: 5px 5px 10px 0px var(--light-accent-color);
+}
+
+/* Users */
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  color: var(--dark-accent-color);
+  box-shadow: 5px 5px 10px 0px var(--light-accent-color);
+}
+
+.users-list button {
+  background-color: var(--main-color);
+  padding: 2.5px;
+  border-radius: 5px;
+  color: var(--light-color);
+  margin-top: 5px;
+}
+
+/* SignUp */
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  color: var(--dark-accent-color);
+  box-shadow: 5px 5px 10px 0px var(--light-accent-color);
+}
+
+.sign-up-form button {
+  background-color: var(--main-color);
+  padding: 2.5px;
+  border-radius: 5px;
+  color: var(--light-color);
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+#reset {
+  background-color: var(--main-color);
+  padding: 2.5px;
+  border-radius: 5px;
+  color: var(--light-color);
 }

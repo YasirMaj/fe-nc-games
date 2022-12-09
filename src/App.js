@@ -8,6 +8,7 @@ import Users from "./components/Users";
 import Review from "./components/Review";
 import { useState } from "react";
 import SignUp from "./components/SignUp";
+import Reviews from "./components/Reviews";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -19,6 +20,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/reviews" element={<Reviews />} />
         <Route path="/reviews/:review_id" element={<Review />} />
         <Route
           path="/categories"
@@ -26,7 +28,7 @@ function App() {
             <Categories categories={categories} setCategories={setCategories} />
           }
         />
-        <Route path="/categories/:slug" element={<Home />} />
+        <Route path="/categories/:slug" element={<Reviews />} />
         <Route
           path="/users"
           element={<Users users={users} setUsers={setUsers} />}

@@ -22,7 +22,12 @@
 }
 
 nav {
+  padding: 20px;
   background-color: var(--dark-accent-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: xx-large;
 }
 
 img {
@@ -36,7 +41,7 @@ h2 {
 }
 
 h3 {
-  color: var(--light-color);
+  color: var(--main-color);
 }
 
 .header {
@@ -51,8 +56,14 @@ h3 {
 }
 
 .Link {
-  padding: 10px;
-  color: var(--light-accent-color);
+  color: var(--main-color);
+}
+
+.sort-by {
+  display: flex;
+  flex-direction: rows;
+  gap: 5px;
+  justify-content: center;
 }
 
 .review-card {

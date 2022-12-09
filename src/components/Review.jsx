@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom/dist";
 import { getReviewsById } from "../utils/api";
 import Comments from "./Comments";
 import ReviewVotes from "./ReviewVotes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function Review() {
   const [review, setReview] = useState({});
@@ -24,7 +26,9 @@ export default function Review() {
     <main>
       <h3>Review</h3>
       {isLoading ? (
-        <h3 id="loading">Loading...</h3>
+        <h3 id="loading">
+          Loading <FontAwesomeIcon icon={solid("spinner")} spin />
+        </h3>
       ) : (
         <div>
           <section className="review">

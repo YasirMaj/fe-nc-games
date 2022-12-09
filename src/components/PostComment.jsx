@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom/dist";
 import { postComment } from "../utils/api";
 import { UserContext } from "../contexts/users";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function PostComment({ setNewCommentCount }) {
   const [newBody, setNewBody] = useState("");
@@ -45,7 +47,9 @@ export default function PostComment({ setNewCommentCount }) {
           }}
         ></textarea>
         <br />
-        <button>Post</button>
+        <button>
+          <FontAwesomeIcon icon={solid("circle-plus")} beat />
+        </button>
         <span>{error}</span>
         <section>
           {err ? <span>Sorry - your comment was not posted</span> : <></>}

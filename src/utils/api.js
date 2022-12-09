@@ -74,3 +74,7 @@ export const patchComment = (comment_id, inc_votes) => {
     return res.data.comment;
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return gamesApi.delete(`/comments/${comment_id}`).then(() => {});
+};

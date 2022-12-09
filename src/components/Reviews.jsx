@@ -37,7 +37,6 @@ export default function Reviews() {
   } else {
     return (
       <main>
-        <h3>Reviews List</h3>
         <section className="sort-by">
           <h3>Sort By:</h3>
           <button
@@ -76,6 +75,7 @@ export default function Reviews() {
             <option>asc</option>
           </select>
         </section>
+        <h3>Reviews List</h3>
         {isLoading ? (
           <h3 id="loading">
             Loading <FontAwesomeIcon icon={solid("spinner")} spin />

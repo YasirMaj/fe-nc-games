@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="home">
       <img className="App-logo" src={logo} alt="GF" />
-      <section>
+      <section className="home-buttons">
         <Link to="/users">
           <button>Login!</button>
         </Link>

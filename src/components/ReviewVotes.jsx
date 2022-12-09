@@ -83,32 +83,30 @@ export default function ReviewVotes({ review }) {
 
   return (
     <div className="review-votes">
-      <section>
-        <button
-          disabled={resetDownVote}
-          onClick={upVote ? decreaseUpVote : increaseUpVote}
-        >
-          <span aria-label="inc vote for this review">
-            <FontAwesomeIcon icon={regular("thumbs-up")} flip />
-          </span>
-        </button>
-        <section>
-          {err ? (
-            <span>Sorry - your vote was not counted</span>
-          ) : (
-            <p>Votes: {review.votes + votes}</p>
-          )}
-        </section>
-        <button
-          disabled={resetUpVote}
-          onClick={downVote ? decreaseDownVote : increaseDownVote}
-        >
-          <span aria-label="dec vote for this review">
-            <FontAwesomeIcon icon={regular("thumbs-down")} flip />
-          </span>
-        </button>
-        <span>{error}</span>
-      </section>
+      <button
+        disabled={resetDownVote}
+        onClick={upVote ? decreaseUpVote : increaseUpVote}
+      >
+        <span aria-label="inc vote for this review">
+          <FontAwesomeIcon icon={regular("thumbs-up")} flip />
+        </span>
+      </button>
+
+      {err ? (
+        <span>Sorry - your vote was not counted</span>
+      ) : (
+        <p>Votes: {review.votes + votes}</p>
+      )}
+
+      <button
+        disabled={resetUpVote}
+        onClick={downVote ? decreaseDownVote : increaseDownVote}
+      >
+        <span aria-label="dec vote for this review">
+          <FontAwesomeIcon icon={regular("thumbs-down")} flip />
+        </span>
+      </button>
+      <span>{error}</span>
     </div>
   );
 }

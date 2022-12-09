@@ -65,6 +65,7 @@ export default function Comments() {
                     <CommentVotes comment={comment} />
                     <span>{error}</span>
                     <button
+                      id="delete"
                       onClick={() => {
                         handleDelete(comment);
                       }}

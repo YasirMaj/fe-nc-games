@@ -3,6 +3,8 @@ import { getUsers } from "../utils/api";
 import { UserContext } from "../contexts/users";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function Users({ users, setUsers }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,14 +23,16 @@ export default function Users({ users, setUsers }) {
 
   const handleSelectUser = (user) => {
     setUser(user);
-    navigate(`/`);
+    navigate(`/reviews`);
   };
 
   return (
     <main>
       <h3>Users List</h3>
       {isLoading ? (
-        <h3 id="loading">Loading...</h3>
+        <h3 id="loading">
+          Loading <FontAwesomeIcon icon={solid("spinner")} spin />
+        </h3>
       ) : (
         <section className="users-list">
           <Link to="/user/sign-up">

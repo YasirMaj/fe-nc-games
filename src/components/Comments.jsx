@@ -1,15 +1,33 @@
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getComments } from "../utils/api";
+import { deleteComment, getComments } from "../utils/api";
 import CommentVotes from "./CommentVotes";
 import PostComment from "./PostComment";
+import { UserContext } from "../contexts/users";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function Comments() {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { review_id } = useParams();
   const [newCommentCount, setNewCommentCount] = useState(0);
+  const { user } = useContext(UserContext);
+  const [error, setError] = useState("");
+
+  const handleDelete = (commentToDelete) => {
+    const originalComments = comments;
+    setComments((currComments) => {
+      return currComments.filter((comment) => {
+        return comment.comment_id !== commentToDelete.comment_id;
+      });
+    });
+    deleteComment(commentToDelete.comment_id).catch(() => {
+      setError("Something went wrong, please try again.");
+      setComments(originalComments);
+    });
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -23,12 +41,17 @@ export default function Comments() {
 
   return (
     <main>
-      <h3>Comments</h3>
       {isLoading ? (
-        <h3 id="loading">Loading...</h3>
+        <h3 id="loading">
+          Loading <FontAwesomeIcon icon={solid("spinner")} spin />
+        </h3>
       ) : (
         <div>
+          <section className="post-comment">
+            <PostComment setNewCommentCount={setNewCommentCount} />
+          </section>
           <section>
+            <h3>Comments</h3>
             <ul>
               {comments.map((comment) => {
                 return (
@@ -40,13 +63,19 @@ export default function Comments() {
                       {moment(comment.created_at).utc().format("YYYY-MM-DD")}
                     </p>
                     <CommentVotes comment={comment} />
+                    <span>{error}</span>
+                    <button
+                      onClick={() => {
+                        handleDelete(comment);
+                      }}
+                      disabled={user.username !== comment.author}
+                    >
+                      <FontAwesomeIcon icon={solid("trash")} shake />
+                    </button>
                   </li>
                 );
               })}
             </ul>
-          </section>
-          <section className="post-comment">
-            <PostComment setNewComment={setNewCommentCount} />
           </section>
         </div>
       )}

@@ -19,7 +19,7 @@ export default function SignUp({ users }) {
     } else {
       setUser({ username: newUsername });
       postUser(newUsername, name, newAvatar);
-      navigate("/");
+      navigate("/reviews");
     }
   };
 

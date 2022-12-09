@@ -17,6 +17,7 @@ export default function Comments() {
   const [error, setError] = useState("");
 
   const handleDelete = (commentToDelete) => {
+    const originalComments = comments;
     setComments((currComments) => {
       return currComments.filter((comment) => {
         return comment.comment_id !== commentToDelete.comment_id;
@@ -24,11 +25,7 @@ export default function Comments() {
     });
     deleteComment(commentToDelete.comment_id).catch(() => {
       setError("Something went wrong, please try again.");
-      setComments((currComments) => {
-        const newComments = [...currComments];
-        newComments.unshift(commentToDelete);
-        return newComments;
-      });
+      setComments(originalComments);
     });
   };
 

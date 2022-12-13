@@ -53,7 +53,9 @@ export default function Review() {
               <p>{review.review_body}</p>
               <p>
                 Date Created:
-                {moment(review.created_at).utc().format("YYYY-MM-DD")}
+                {moment(review.created_at)
+                  .utc()
+                  .format("YYYY-MM-DD, h:mm:ss a")}
               </p>
               <ReviewVotes review={review} />
               <span>Comments: {review.comment_count}</span>

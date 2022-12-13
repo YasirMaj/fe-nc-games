@@ -6,8 +6,10 @@
   --light-color: #eae9df;
 }
 
+/* reset */
+
 * {
-  font-family: "Indie Flower", cursive;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
@@ -22,7 +24,9 @@
 
 nav {
   padding: 20px;
-  background-color: var(--dark-accent-color);
+  background-color: var(--light-color);
+  margin: 10px;
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -36,16 +40,15 @@ img {
 }
 
 h2 {
-  color: var(--dark-accent-color);
+  color: var(--light-color);
 }
 
 h3 {
-  color: var(--main-color);
+  color: var(--light-color);
 }
 
 .header {
-  background-color: var(--light-accent-color);
-  color: var(--dark-color);
+  background-color: var(--dark-color);
 }
 
 .header-logo {
@@ -82,7 +85,7 @@ h3 {
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 5s linear;
   }
 }
 
@@ -107,6 +110,17 @@ h3 {
   padding: 2.5px;
   border-radius: 5px;
   color: var(--light-color);
+}
+
+.footer {
+  padding: 20px;
+  background-color: var(--light-color);
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  color: var(--main-color);
+  font-size: large;
 }
 
 /* Reviews */
@@ -134,6 +148,61 @@ h3 {
   border-radius: 5px;
 }
 
+.post-review-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  color: var(--dark-accent-color);
+  box-shadow: 5px 5px 10px 0px var(--light-accent-color);
+}
+
+.post-review-form button {
+  display: flex;
+  right: 10px;
+  font-size: xx-large;
+  color: var(--main-color);
+}
+
+.new-category {
+  display: flex;
+  flex-direction: column;
+}
+
+#title {
+  background-color: var(--main-color);
+  color: var(--light-color);
+}
+
+#designer {
+  background-color: var(--main-color);
+  color: var(--light-color);
+}
+
+#pick-category {
+  background-color: var(--main-color);
+  color: var(--light-color);
+}
+
+#category {
+  background-color: var(--main-color);
+  color: var(--light-color);
+}
+
+#description {
+  background-color: var(--main-color);
+  color: var(--light-color);
+}
+
+#newReview {
+  background-color: var(--main-color);
+  color: var(--light-color);
+}
+
 .review-card {
   display: flex;
   flex-direction: column;
@@ -150,6 +219,15 @@ h3 {
 .review-card img {
   margin: 5px;
   border: 1px solid var(--main-color);
+}
+
+.pagination button {
+  background-color: var(--main-color);
+  font-size: x-large;
+  padding: 2.5px;
+  border-radius: 5px;
+  color: var(--light-color);
+  margin: 10px;
 }
 
 /* Review */
@@ -178,6 +256,11 @@ h3 {
 .review-votes button {
   font-size: xx-large;
   color: var(--main-color);
+}
+
+.review img {
+  margin: 5px;
+  border: 1px solid var(--main-color);
 }
 
 .post-comment-form {
@@ -276,6 +359,14 @@ h3 {
   margin-top: 5px;
 }
 
+#sign-up-button {
+  background-color: var(--main-color);
+  padding: 2.5px;
+  border-radius: 5px;
+  color: var(--light-color);
+  margin-top: 10px;
+}
+
 /* SignUp */
 
 .sign-up-form {
@@ -289,6 +380,11 @@ h3 {
   background-color: var(--light-color);
   color: var(--dark-accent-color);
   box-shadow: 5px 5px 10px 0px var(--light-accent-color);
+}
+
+.sign-up-form input {
+  background-color: var(--main-color);
+  color: var(--light-color);
 }
 
 .sign-up-form button {
@@ -305,4 +401,41 @@ h3 {
   padding: 2.5px;
   border-radius: 5px;
   color: var(--light-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .home {
+    margin: 25px;
+  }
+
+  .App-logo {
+    width: 250px;
+    padding: 25px;
+  }
+
+  .review-card {
+    width: 350px;
+  }
+
+  .reviews-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .user-card {
+    width: 350px;
+  }
+
+  .users-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .review img {
+    width: 350px;
+  }
 }

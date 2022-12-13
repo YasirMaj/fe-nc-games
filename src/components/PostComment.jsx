@@ -35,7 +35,7 @@ export default function PostComment({ setNewCommentCount }) {
     <div>
       <h3>Post Comment</h3>
       <form className="post-comment-form" onSubmit={handlePostComment}>
-        <label htmlFor="new-comment"></label>
+        <label htmlFor="new-comment">Comment:</label>
         <textarea
           type="text"
           id="newComment"
@@ -47,12 +47,12 @@ export default function PostComment({ setNewCommentCount }) {
           }}
         ></textarea>
         <br />
-        <button>
+        <button aria-label="Post">
           <FontAwesomeIcon icon={solid("circle-plus")} beat />
         </button>
         <span>{error}</span>
         <section>
-          {err ? <span>Sorry - your comment was not posted</span> : <></>}
+          {err ? <span>Sorry - your comment was not posted</span> : null}
         </section>
       </form>
     </div>

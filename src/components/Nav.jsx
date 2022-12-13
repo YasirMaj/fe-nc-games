@@ -9,14 +9,14 @@ export default function Nav() {
 
   return (
     <nav className="Nav">
-      <Link className="Link" to="/reviews">
+      <Link className="Link" to="/reviews" aria-label="Home">
         <FontAwesomeIcon icon={solid("house")} bounce />
       </Link>
-      <Link className="Link" to="/categories">
+      <Link className="Link" to="/categories" aria-label="Categories">
         <FontAwesomeIcon icon={solid("cat")} bounce />
       </Link>
       {user.username === "Guest" ? (
-        <Link className="Link" to="/users">
+        <Link className="Link" to="/users" aria-label="Sign-in">
           <FontAwesomeIcon icon={solid("right-to-bracket")} bounce />
         </Link>
       ) : null}
@@ -25,6 +25,7 @@ export default function Nav() {
           className="Link"
           to="/users"
           onClick={() => setUser({ username: "Guest" })}
+          aria-label="Sign-out"
         >
           <FontAwesomeIcon icon={solid("right-from-bracket")} bounce />
         </Link>

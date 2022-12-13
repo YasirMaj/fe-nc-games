@@ -34,25 +34,27 @@ export default function Users({ users, setUsers }) {
           Loading <FontAwesomeIcon icon={solid("spinner")} spin />
         </h3>
       ) : (
-        <section className="users-list">
+        <div>
           <Link to="/user/sign-up">
-            <button>Sign Up</button>
+            <button id="sign-up-button">Sign Up</button>
           </Link>
-          <ul>
-            {users.map((user) => {
-              return (
-                <li className="user-card" key={user.username}>
-                  <h4>{user.username}</h4>
-                  <p>{user.name}</p>
-                  <img src={user.avatar_url} alt={user.username} />
-                  <button onClick={() => handleSelectUser(user)}>
-                    Select user
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
+          <section>
+            <ul className="users-list">
+              {users.map((user) => {
+                return (
+                  <li className="user-card" key={user.username}>
+                    <h4>{user.username}</h4>
+                    <p>{user.name}</p>
+                    <img src={user.avatar_url} alt={user.username} />
+                    <button onClick={() => handleSelectUser(user)}>
+                      Select user
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        </div>
       )}
     </main>
   );

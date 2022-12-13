@@ -4,10 +4,10 @@ const gamesApi = axios.create({
   baseURL: "https://games.cyclic.app/api",
 });
 
-export const getReviews = (slug, sort, order) => {
+export const getReviews = (slug, sort, order, page) => {
   return gamesApi
     .get("/reviews", {
-      params: { category: slug, sort_by: sort, order: order },
+      params: { category: slug, sort_by: sort, order: order, p: page },
     })
     .then((res) => {
       return res.data.reviews;
@@ -77,4 +77,31 @@ export const patchComment = (comment_id, inc_votes) => {
 
 export const deleteComment = (comment_id) => {
   return gamesApi.delete(`/comments/${comment_id}`).then(() => {});
+};
+
+export const postReview = (owner, title, review_body, designer, category) => {
+  const postBody = {
+    owner: owner,
+    title: title,
+    review_body: review_body,
+    designer: designer,
+    category: category,
+  };
+  return gamesApi.post("/reviews", postBody).then((res) => {
+    return res.data.review;
+  });
+};
+
+export const postCategory = (slug, description) => {
+  const postBody = {
+    slug: slug,
+    description: description,
+  };
+  return gamesApi.post(`/categories`, postBody).then((res) => {
+    return res.data.category;
+  });
+};
+
+export const deleteReview = (review_id) => {
+  return gamesApi.delete(`/reviews/${review_id}`).then(() => {});
 };

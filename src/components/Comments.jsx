@@ -60,11 +60,14 @@ export default function Comments() {
                     <p>{comment.body}</p>
                     <p>
                       Date Created:
-                      {moment(comment.created_at).utc().format("YYYY-MM-DD")}
+                      {moment(comment.created_at)
+                        .utc()
+                        .format("YYYY-MM-DD, h:mm:ss a")}
                     </p>
                     <CommentVotes comment={comment} />
                     <span>{error}</span>
                     <button
+                      aria-label="delete"
                       id="delete"
                       onClick={() => {
                         handleDelete(comment);

@@ -84,12 +84,11 @@ export default function ReviewVotes({ review }) {
   return (
     <div className="review-votes">
       <button
+        aria-label="Increment"
         disabled={resetDownVote}
         onClick={upVote ? decreaseUpVote : increaseUpVote}
       >
-        <span aria-label="inc vote for this review">
-          <FontAwesomeIcon icon={regular("thumbs-up")} flip />
-        </span>
+        <FontAwesomeIcon icon={regular("thumbs-up")} flip />
       </button>
 
       {err ? (
@@ -99,12 +98,11 @@ export default function ReviewVotes({ review }) {
       )}
 
       <button
+        aria-label="Decrement"
         disabled={resetUpVote}
         onClick={downVote ? decreaseDownVote : increaseDownVote}
       >
-        <span aria-label="dec vote for this review">
-          <FontAwesomeIcon icon={regular("thumbs-down")} flip />
-        </span>
+        <FontAwesomeIcon icon={regular("thumbs-down")} flip />
       </button>
       <span>{error}</span>
     </div>

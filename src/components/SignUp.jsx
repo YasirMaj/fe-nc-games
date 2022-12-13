@@ -51,7 +51,7 @@ export default function SignUp({ users }) {
       <label htmlFor="name">Name:</label>
       <input
         type="text"
-        id="username"
+        id="name"
         required
         placeholder="e.g Sam Silly"
         onChange={(e) => {

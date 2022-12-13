@@ -83,13 +83,11 @@ export default function CommentVotes({ comment }) {
   return (
     <div className="comment-votes">
       <button
+        aria-label="Increment"
         disabled={resetDownVote}
         onClick={upVote ? decreaseUpVote : increaseUpVote}
       >
-        <span aria-label="inc vote for this comment">
-          {" "}
-          <FontAwesomeIcon icon={regular("thumbs-up")} flip />
-        </span>
+        <FontAwesomeIcon icon={regular("thumbs-up")} flip />
       </button>
       {err ? (
         <span>Sorry - your vote was not counted</span>
@@ -97,13 +95,11 @@ export default function CommentVotes({ comment }) {
         <p>Votes: {comment.votes + votes}</p>
       )}
       <button
+        aria-label="Decrement"
         disabled={resetUpVote}
         onClick={downVote ? decreaseDownVote : increaseDownVote}
       >
-        <span aria-label="dec vote for this comment">
-          {" "}
-          <FontAwesomeIcon icon={regular("thumbs-down")} flip />
-        </span>
+        <FontAwesomeIcon icon={regular("thumbs-down")} flip />
       </button>
       <span>{error}</span>
     </div>

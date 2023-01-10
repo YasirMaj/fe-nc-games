@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Games Forum
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was started with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+|                  |     |                                         |
+| ---------------- | --- | --------------------------------------- |
+| **Deployed URL** | :   | https://games-forum.netlify.app/        |
+| **Backend API**  | :   | https://games.cyclic.app/api            |
+| **Backend Repo** | :   | https://github.com/YasirMaj/be-nc-games |
 
-### `npm start`
+This React website provides the frontend for the backend API I made previously (link above). It allows visitors to view Reviews listed by categories; to read individual Reviews and Comments; to up/down vote comments; and to submit/delete their own comments (subject to being logged in).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The site is designed along conventional lines, with a navbar at the top containing links to categories, as well as a login link. Reviews can be sorted according to various criteria. The URL updates on every new page, so that anything copied from the address bar will render correctly elsewhere.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Running the website locally
 
-### `npm test`
+### Cloning the repo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In the terminal, navigate to the directory into which you would like to clone the repo, and run:
 
-### `npm run build`
+```shell
+$ git clone https://github.com/YasirMaj/fe-nc-games
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installing dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Once this is complete, install all dependencies using:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```shell
+$ npm install
+```
 
-### `npm run eject`
+This may take some time, as React is a large module.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Starting the local server
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+With all dependencies installed, the server can be started using:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```shell
+$ npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The default port is 3000. To use a different one, modify the `start` script within `package.json` by prepending `PORT=<PORT NUMBER>`.
 
-## Learn More
+The locally hosted website should open automatically in the machine's default browser. If not, a link to the server will also be displayed in the terminal.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|**Minimum Node version**|:|19.0.0|
